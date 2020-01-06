@@ -108,12 +108,13 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
                 "" +
                 "asdfasdfasdf");
 
-        guacNotes.setRecipe(guacRecipe);
+//        guacNotes.setRecipe(guacRecipe); //bo przeniesione dzialanie do metody setNotes w Recipe.java
         guacRecipe.setNotes(guacNotes);
 
-        guacRecipe.getIngredients().add(new Ingredient("ripe avocados", new BigDecimal(2), eachUom, guacRecipe));
-        guacRecipe.getIngredients().add(new Ingredient("fresh lime juice or lemon juice", new BigDecimal(3), tableSpoonUom, guacRecipe));
-        guacRecipe.getIngredients().add(new Ingredient("frshly grated black paper", new BigDecimal(2), dashUom, guacRecipe));
+        //podmiana na metode: z guacRecipe.getIngredients().add na guacRecipe.addIngredient
+        guacRecipe.addIngredient(new Ingredient("ripe avocados", new BigDecimal(2), eachUom));
+        guacRecipe.addIngredient(new Ingredient("fresh lime juice or lemon juice", new BigDecimal(3), tableSpoonUom));
+        guacRecipe.addIngredient(new Ingredient("frshly grated black paper", new BigDecimal(2), dashUom));
 
         guacRecipe.getCategories().add(americanCategory);
         guacRecipe.getCategories().add(italianCategory);
